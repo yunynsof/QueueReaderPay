@@ -10,7 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * ReaderQueuePayDaemonThread.
+ * Class that allows you to start the process of Read Queue JMS.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0

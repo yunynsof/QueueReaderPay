@@ -6,7 +6,7 @@ import com.newrelic.api.agent.NewRelic;
 
 
 /**
- * NewRelicImpl.
+ * This class contains methods referring to new relic, which maps the metrics of the project.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0

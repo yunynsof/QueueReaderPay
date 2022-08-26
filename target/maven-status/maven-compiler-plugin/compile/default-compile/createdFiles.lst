@@ -12,7 +12,6 @@ com\tigo\josm\gateway\services\order\additionalparameterdto\v1\AdditionalParamet
 com\tigo\josm\gateway\services\order\complexorderrequest\v1\package-info.class
 hn\com\tigo\queue\utils\ReadFilesConfig.class
 hn\com\tigo\queue\dto\DTO.class
-hn\com\tigo\queue\dto\DetailQueueDTO.class
 com\tigo\josm\gateway\services\order\complexorderrequest\v1\ComplexOrderRequest.class
 com\tigo\josm\gateway\services\order\orderresponse\v1\package-info.class
 hn\com\tigo\queue\listener\entity\ParametersEntity.class
@@ -32,6 +31,5 @@ com\tigo\josm\gateway\services\order\orderresponse\v1\OrderResponse.class
 hn\com\tigo\queue\listener\entity\OcepManager.class
 hn\com\tigo\queue\dto\ConfigEventDTO.class
 hn\com\tigo\queue\dto\AttributeValuePair.class
-hn\com\tigo\queue\dto\ConfigQueueDTO.class
 hn\com\tigo\queue\context\Context.class
 com\tigo\josm\gateway\services\order\complexorderrequest\v1\EnumOrderType.class

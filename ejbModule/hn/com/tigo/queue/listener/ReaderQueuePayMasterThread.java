@@ -16,10 +16,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import javax.jms.Connection;
+import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.MessageConsumer;
 import javax.jms.Queue;
 import javax.jms.QueueConnectionFactory;
+import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -48,7 +50,7 @@ import hn.com.tigo.queue.utils.ReadFilesConfig;
 import hn.com.tigo.queue.utils.States;
 
 /**
- * ReaderQueuePayMasterThread.
+ * This class contains the main logic for reading events to be processed and read them to JMS queues.
  *
  * @author Yuny Rene Rodriguez Perez {@literal<mailto: yrodriguez@hightech-corp.com />}
  * @version  1.0.0
@@ -159,13 +161,13 @@ public class ReaderQueuePayMasterThread extends Thread {
 		while (state == States.STARTED) {
 	
 			long startTime = 0;
-			/*try {
+			try {
 				Session session = this.queueConn.createSession(false, 1);
 				this.consumer = session.createConsumer((Destination) this.queue);
 			} catch (JMSException e) {
 				LOGGER.error("Error ocurred while attempting creation of queue session.");
 				return;
-			}*/
+			}
 
 			try {
 				
@@ -188,7 +190,7 @@ public class ReaderQueuePayMasterThread extends Thread {
 				startTime = 0;
 
 			}
-			state = States.SHUTTINGDOWN;
+			//state = States.SHUTTINGDOWN;
 		}
 		executorService.shutdown();
 	}
@@ -203,7 +205,7 @@ public class ReaderQueuePayMasterThread extends Thread {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 * @throws MalformedURLException the malformed URL exception
 	 */
-	public long sendToCPE(long startTime, String mensaje) throws IOException, MalformedURLException {
+	public long sendToCPE(long startTime, String mensaje) throws IOException {
 		
 		if (mensaje != null && !mensaje.equals("")) {
 			startTime = System.nanoTime();
@@ -247,7 +249,7 @@ public class ReaderQueuePayMasterThread extends Thread {
 		request.setComment(comment);
 		request.setExternalTransacionId(UUID.randomUUID().toString());
 		OrderRequestDetail orderRequestDetail = new OrderRequestDetail();
-		orderRequestDetail.setProductId(Integer.valueOf(notifyMessage.getProductId()));
+		orderRequestDetail.setProductId(notifyMessage.getProductId());
 		orderRequestDetail.setSubscriberId(notifyMessage.getSubscriberId());
 		orderRequestDetail.setQuantity(1);
 
